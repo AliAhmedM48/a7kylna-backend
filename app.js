@@ -15,7 +15,7 @@ app.use(express.json());
 const { protect } = require('./middlewares/authMiddleware');
 
 // Connect to MongoDB Atlas using environment variable
-mongoose.connect(process.env.DB_HOST)
+mongoose.connect(process.env.DB_HOST, { dbName: process.env.DB_HOST })
     .then(() => {
         console.log('Connected to MongoDB Atlas');
     })
